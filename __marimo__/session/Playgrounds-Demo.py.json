@@ -1,0 +1,112 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.17.0"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "77d8b4ef1c102080c0ffa9a233dfc67f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-sidebar ><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert\"><h1 id=\"icicle-ai-model-data-playgrounds\">ICICLE AI: Model &amp; Data Playgrounds</h1></span><marimo-nav-menu data-items='[{&quot;label&quot;:&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;&lt;iconify-icon icon=&#x27;lucide:home&#x27; inline&gt;&lt;/iconify-icon&gt; Home&lt;/span&gt;&lt;/span&gt;&quot;,&quot;href&quot;:&quot;https://icicle.ai&quot;,&quot;description&quot;:null},{&quot;label&quot;:&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Links&lt;/span&gt;&lt;/span&gt;&quot;,&quot;items&quot;:[{&quot;label&quot;:&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;GitHub&lt;/span&gt;&lt;/span&gt;&quot;,&quot;href&quot;:&quot;https://github.com/icicle-ai&quot;,&quot;description&quot;:null},{&quot;label&quot;:&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Hugging Face&lt;/span&gt;&lt;/span&gt;&quot;,&quot;href&quot;:&quot;https://huggingface.co/icicle-ai&quot;,&quot;description&quot;:null}]}]' data-orientation='&quot;vertical&quot;'></marimo-nav-menu></div></marimo-sidebar>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "9034cfcdd34716d2deaa887474da1ebf",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "c72eced29334fb14ccfebd79fa4ecefc",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "c0e0fd99ca94be91cb7107ae63a7db34",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "462d672323bc37bed0641e91700787ee",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "6b97cb33872fe4364d0647fd9bb8ee29",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "fe01ce2a7fbac8fafaed7c982a04e229",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-accordion data-labels='[&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert&#92;&quot;&gt;&lt;ol&gt;&#92;n&lt;li&gt;Introduction&lt;/li&gt;&#92;n&lt;/ol&gt;&lt;/span&gt;&quot;,&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert&#92;&quot;&gt;&lt;ol start=&#92;&quot;2&#92;&quot;&gt;&#92;n&lt;li&gt;Create Patra Model Card&lt;/li&gt;&#92;n&lt;/ol&gt;&lt;/span&gt;&quot;,&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert&#92;&quot;&gt;&lt;ol start=&#92;&quot;3&#92;&quot;&gt;&#92;n&lt;li&gt;Publish Model Artifacts&lt;/li&gt;&#92;n&lt;/ol&gt;&lt;/span&gt;&quot;]' data-multiple='false'><div><span class=\"markdown prose dark:prose-invert\"><h1 id=\"introduction\">Introduction</h1>\n<span class=\"paragraph\"><img alt=\"diagram\" src=\"./PlaygroundsDemo.drawio.png\" /></span></span></div><div><marimo-ui-element object-id='bkHC-40' random-id='91006662-0a44-63aa-9445-f090005bbfdd'><marimo-form data-initial-value='null' data-label='null' data-element-id='&quot;bkHC-39&quot;' data-loading='false' data-bordered='true' data-submit-button-label='&quot;Submit&quot;' data-submit-button-disabled='false' data-clear-on-submit='false' data-show-clear-button='true' data-clear-button-label='&quot;Clear&quot;' data-should-validate='true'><marimo-ui-element object-id='bkHC-39' random-id='643fa7a4-c7e7-971b-b347-c4983a7e0205'><marimo-dict data-initial-value='{&quot;model_card&quot;:{&quot;Name&quot;:&quot;&quot;,&quot;Version&quot;:&quot;&quot;,&quot;Short Description&quot;:&quot;&quot;,&quot;Full Description&quot;:&quot;&quot;,&quot;Keywords&quot;:&quot;&quot;,&quot;Author&quot;:&quot;&quot;,&quot;Input Type&quot;:[],&quot;Category&quot;:[]},&quot;ai_model&quot;:{&quot;Name&quot;:&quot;&quot;,&quot;Version&quot;:&quot;&quot;,&quot;Description&quot;:&quot;&quot;,&quot;Owner&quot;:&quot;&quot;,&quot;Location&quot;:&quot;&quot;,&quot;License&quot;:&quot;&quot;,&quot;Framework&quot;:[],&quot;Type&quot;:[],&quot;Test Accuracy&quot;:&quot;&quot;}}' data-label='null' data-element-ids='{&quot;bkHC-28&quot;:&quot;model_card&quot;,&quot;bkHC-38&quot;:&quot;ai_model&quot;}'><span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\"><strong>Patra Model Card</strong></span>\n<h2 id=\"model-card-information\">Model Card Information</h2>\n<span class=\"paragraph\"><marimo-ui-element object-id='bkHC-28' random-id='226521a9-3a40-497c-f020-869662c3b99a'><marimo-dict data-initial-value='{&quot;Name&quot;:&quot;&quot;,&quot;Version&quot;:&quot;&quot;,&quot;Short Description&quot;:&quot;&quot;,&quot;Full Description&quot;:&quot;&quot;,&quot;Keywords&quot;:&quot;&quot;,&quot;Author&quot;:&quot;&quot;,&quot;Input Type&quot;:[],&quot;Category&quot;:[]}' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Model Card&lt;/span&gt;&lt;/span&gt;&quot;' data-element-ids='{&quot;bkHC-20&quot;:&quot;Name&quot;,&quot;bkHC-21&quot;:&quot;Version&quot;,&quot;bkHC-22&quot;:&quot;Short Description&quot;,&quot;bkHC-23&quot;:&quot;Full Description&quot;,&quot;bkHC-24&quot;:&quot;Keywords&quot;,&quot;bkHC-25&quot;:&quot;Author&quot;,&quot;bkHC-26&quot;:&quot;Input Type&quot;,&quot;bkHC-27&quot;:&quot;Category&quot;}'><marimo-json-output data-json-data='{&quot;Name&quot;:&quot;text/html:&lt;marimo-ui-element object-id=&#x27;bkHC-20&#x27; random-id=&#x27;bce3a933-5b44-edd9-24a6-85479b80b60e&#x27;&gt;&lt;marimo-text data-initial-value=&#x27;&amp;quot;&amp;quot;&#x27; data-label=&#x27;null&#x27; data-placeholder=&#x27;&amp;quot;The model card name.&amp;quot;&#x27; data-kind=&#x27;&amp;quot;text&amp;quot;&#x27; data-full-width=&#x27;false&#x27; data-disabled=&#x27;false&#x27; data-debounce=&#x27;true&#x27;&gt;&lt;/marimo-text&gt;&lt;/marimo-ui-element&gt;&quot;,&quot;Version&quot;:&quot;text/html:&lt;marimo-ui-element object-id=&#x27;bkHC-21&#x27; random-id=&#x27;ced85bc5-2f62-cfbe-0960-9540d1746871&#x27;&gt;&lt;marimo-text data-initial-value=&#x27;&amp;quot;&amp;quot;&#x27; data-label=&#x27;null&#x27; data-placeholder=&#x27;&amp;quot;The model card version.&amp;quot;&#x27; data-kind=&#x27;&amp;quot;text&amp;quot;&#x27; data-full-width=&#x27;false&#x27; data-disabled=&#x27;false&#x27; data-debounce=&#x27;true&#x27;&gt;&lt;/marimo-text&gt;&lt;/marimo-ui-element&gt;&quot;,&quot;Short Description&quot;:&quot;text/html:&lt;marimo-ui-element object-id=&#x27;bkHC-22&#x27; random-id=&#x27;5bace03a-1d50-588d-17eb-20c7edf86529&#x27;&gt;&lt;marimo-text data-initial-value=&#x27;&amp;quot;&amp;quot;&#x27; data-label=&#x27;null&#x27; data-placeholder=&#x27;&amp;quot;500 characters max&amp;quot;&#x27; data-kind=&#x27;&amp;quot;text&amp;quot;&#x27; data-max-length=&#x27;500&#x27; data-full-width=&#x27;false&#x27; data-disabled=&#x27;false&#x27; data-debounce=&#x27;true&#x27;&gt;&lt;/marimo-text&gt;&lt;/marimo-ui-element&gt;&quot;,&quot;Full Description&quot;:&quot;text/html:&lt;marimo-ui-element object-id=&#x27;bkHC-23&#x27; random-id=&#x27;00a58753-8853-3d59-899d-155eecc3e3e0&#x27;&gt;&lt;marimo-text-area data-initial-value=&#x27;&amp;quot;&amp;quot;&#x27; data-label=&#x27;null&#x27; data-placeholder=&#x27;&amp;quot;&amp;quot;&#x27; data-disabled=&#x27;false&#x27; data-debounce=&#x27;true&#x27; data-full-width=&#x27;false&#x27;&gt;&lt;/marimo-text-area&gt;&lt;/marimo-ui-element&gt;&quot;,&quot;Keywords&quot;:&quot;text/html:&lt;marimo-ui-element object-id=&#x27;bkHC-24&#x27; random-id=&#x27;58d8eaf2-5697-0bc5-fa19-ba962c1ef8bc&#x27;&gt;&lt;marimo-text data-initial-value=&#x27;&amp;quot;&amp;quot;&#x27; data-label=&#x27;null&#x27; data-placeholder=&#x27;&amp;quot;Keyword for the model card. Ex. &amp;#x27;demo-model, vision, icicle-ai&amp;#x27;&amp;quot;&#x27; data-kind=&#x27;&amp;quot;text&amp;quot;&#x27; data-full-width=&#x27;false&#x27; data-disabled=&#x27;false&#x27; data-debounce=&#x27;true&#x27;&gt;&lt;/marimo-text&gt;&lt;/marimo-ui-element&gt;&quot;,&quot;Author&quot;:&quot;text/html:&lt;marimo-ui-element object-id=&#x27;bkHC-25&#x27; random-id=&#x27;f4e8feef-f6f2-384e-6d15-f4ed7413f92e&#x27;&gt;&lt;marimo-text data-initial-value=&#x27;&amp;quot;&amp;quot;&#x27; data-label=&#x27;null&#x27; data-placeholder=&#x27;&amp;quot;The model card author.&amp;quot;&#x27; data-kind=&#x27;&amp;quot;text&amp;quot;&#x27; data-full-width=&#x27;false&#x27; data-disabled=&#x27;false&#x27; data-debounce=&#x27;true&#x27;&gt;&lt;/marimo-text&gt;&lt;/marimo-ui-element&gt;&quot;,&quot;Input Type&quot;:&quot;text/html:&lt;marimo-ui-element object-id=&#x27;bkHC-26&#x27; random-id=&#x27;ddbd3e31-e6ef-6444-6e9e-9c7ea63eb8bb&#x27;&gt;&lt;marimo-dropdown data-initial-value=&#x27;[]&#x27; data-label=&#x27;null&#x27; data-options=&#x27;[&amp;quot;Audio&amp;quot;,&amp;quot;Image&amp;quot;,&amp;quot;Tabular&amp;quot;,&amp;quot;Text&amp;quot;,&amp;quot;Video&amp;quot;]&#x27; data-allow-select-none=&#x27;true&#x27; data-searchable=&#x27;false&#x27; data-full-width=&#x27;false&#x27;&gt;&lt;/marimo-dropdown&gt;&lt;/marimo-ui-element&gt;&quot;,&quot;Category&quot;:&quot;text/html:&lt;marimo-ui-element object-id=&#x27;bkHC-27&#x27; random-id=&#x27;de6040cc-63eb-4e5e-59f9-c338426e6a84&#x27;&gt;&lt;marimo-dropdown data-initial-value=&#x27;[]&#x27; data-label=&#x27;null&#x27; data-options=&#x27;[&amp;quot;anomaly detection&amp;quot;,&amp;quot;causal inference&amp;quot;,&amp;quot;classification&amp;quot;,&amp;quot;clustering&amp;quot;,&amp;quot;computer vision&amp;quot;,&amp;quot;density estimation&amp;quot;,&amp;quot;dimensionality reduction&amp;quot;,&amp;quot;embedding learning&amp;quot;,&amp;quot;generative modeling&amp;quot;,&amp;quot;graph learning&amp;quot;,&amp;quot;graph neural networks&amp;quot;,&amp;quot;metric learning&amp;quot;,&amp;quot;multi-label classification&amp;quot;,&amp;quot;multi-task learning&amp;quot;,&amp;quot;natural language processing&amp;quot;,&amp;quot;neural architecture search&amp;quot;,&amp;quot;ranking&amp;quot;,&amp;quot;recommendation systems&amp;quot;,&amp;quot;regression&amp;quot;,&amp;quot;reinforcement learning&amp;quot;,&amp;quot;self-supervised learning&amp;quot;,&amp;quot;semi-supervised learning&amp;quot;,&amp;quot;sequence modeling&amp;quot;,&amp;quot;structured prediction&amp;quot;,&amp;quot;time series forecasting&amp;quot;,&amp;quot;transfer learning&amp;quot;,&amp;quot;unsupervised learning&amp;quot;,&amp;quot;other&amp;quot;]&#x27; data-allow-select-none=&#x27;true&#x27; data-searchable=&#x27;false&#x27; data-full-width=&#x27;false&#x27;&gt;&lt;/marimo-dropdown&gt;&lt;/marimo-ui-element&gt;&quot;}' data-value-types='&quot;python&quot;' data-name='&quot;Model Card&quot;'></marimo-json-output></marimo-dict></marimo-ui-element></span>\n<h2 id=\"ai-model-information\">AI Model Information</h2>\n<span class=\"paragraph\"><marimo-ui-element object-id='bkHC-38' random-id='fc25881e-d5a4-44a6-c656-db60998a8c9c'><marimo-dict data-initial-value='{&quot;Name&quot;:&quot;&quot;,&quot;Version&quot;:&quot;&quot;,&quot;Description&quot;:&quot;&quot;,&quot;Owner&quot;:&quot;&quot;,&quot;Location&quot;:&quot;&quot;,&quot;License&quot;:&quot;&quot;,&quot;Framework&quot;:[],&quot;Type&quot;:[],&quot;Test Accuracy&quot;:&quot;&quot;}' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;AI Model&lt;/span&gt;&lt;/span&gt;&quot;' data-element-ids='{&quot;bkHC-29&quot;:&quot;Name&quot;,&quot;bkHC-30&quot;:&quot;Version&quot;,&quot;bkHC-31&quot;:&quot;Description&quot;,&quot;bkHC-32&quot;:&quot;Owner&quot;,&quot;bkHC-33&quot;:&quot;Location&quot;,&quot;bkHC-34&quot;:&quot;License&quot;,&quot;bkHC-35&quot;:&quot;Framework&quot;,&quot;bkHC-36&quot;:&quot;Type&quot;,&quot;bkHC-37&quot;:&quot;Test Accuracy&quot;}'><marimo-json-output data-json-data='{&quot;Name&quot;:&quot;text/html:&lt;marimo-ui-element object-id=&#x27;bkHC-29&#x27; random-id=&#x27;a6ef2a31-7249-ce93-7534-e1b166852915&#x27;&gt;&lt;marimo-text data-initial-value=&#x27;&amp;quot;&amp;quot;&#x27; data-label=&#x27;null&#x27; data-placeholder=&#x27;&amp;quot;The AI model name.&amp;quot;&#x27; data-kind=&#x27;&amp;quot;text&amp;quot;&#x27; data-full-width=&#x27;false&#x27; data-disabled=&#x27;false&#x27; data-debounce=&#x27;true&#x27;&gt;&lt;/marimo-text&gt;&lt;/marimo-ui-element&gt;&quot;,&quot;Version&quot;:&quot;text/html:&lt;marimo-ui-element object-id=&#x27;bkHC-30&#x27; random-id=&#x27;a6809a1b-07f8-62d4-6956-ba3a07717f81&#x27;&gt;&lt;marimo-text data-initial-value=&#x27;&amp;quot;&amp;quot;&#x27; data-label=&#x27;null&#x27; data-placeholder=&#x27;&amp;quot;The AI model version.&amp;quot;&#x27; data-kind=&#x27;&amp;quot;text&amp;quot;&#x27; data-full-width=&#x27;false&#x27; data-disabled=&#x27;false&#x27; data-debounce=&#x27;true&#x27;&gt;&lt;/marimo-text&gt;&lt;/marimo-ui-element&gt;&quot;,&quot;Description&quot;:&quot;text/html:&lt;marimo-ui-element object-id=&#x27;bkHC-31&#x27; random-id=&#x27;c0cd3bee-2d62-4a4a-ad08-dafc76e094f6&#x27;&gt;&lt;marimo-text-area data-initial-value=&#x27;&amp;quot;&amp;quot;&#x27; data-label=&#x27;null&#x27; data-placeholder=&#x27;&amp;quot;Description of the AI model.&amp;quot;&#x27; data-disabled=&#x27;false&#x27; data-debounce=&#x27;true&#x27; data-full-width=&#x27;false&#x27;&gt;&lt;/marimo-text-area&gt;&lt;/marimo-ui-element&gt;&quot;,&quot;Owner&quot;:&quot;text/html:&lt;marimo-ui-element object-id=&#x27;bkHC-32&#x27; random-id=&#x27;116ffe10-61ea-059f-8dbc-5c5dd876ceae&#x27;&gt;&lt;marimo-text data-initial-value=&#x27;&amp;quot;&amp;quot;&#x27; data-label=&#x27;null&#x27; data-placeholder=&#x27;&amp;quot;The AI model owner.&amp;quot;&#x27; data-kind=&#x27;&amp;quot;text&amp;quot;&#x27; data-full-width=&#x27;false&#x27; data-disabled=&#x27;false&#x27; data-debounce=&#x27;true&#x27;&gt;&lt;/marimo-text&gt;&lt;/marimo-ui-element&gt;&quot;,&quot;Location&quot;:&quot;text/html:&lt;marimo-ui-element object-id=&#x27;bkHC-33&#x27; random-id=&#x27;b6f0081e-e81c-3be0-efe1-b2e862d53b19&#x27;&gt;&lt;marimo-text data-initial-value=&#x27;&amp;quot;&amp;quot;&#x27; data-label=&#x27;null&#x27; data-placeholder=&#x27;&amp;quot;Downloadable url to model weights.&amp;quot;&#x27; data-kind=&#x27;&amp;quot;url&amp;quot;&#x27; data-full-width=&#x27;false&#x27; data-disabled=&#x27;false&#x27; data-debounce=&#x27;true&#x27;&gt;&lt;/marimo-text&gt;&lt;/marimo-ui-element&gt;&quot;,&quot;License&quot;:&quot;text/html:&lt;marimo-ui-element object-id=&#x27;bkHC-34&#x27; random-id=&#x27;41fff883-bc1a-ad72-daa7-3afcafcf7918&#x27;&gt;&lt;marimo-text data-initial-value=&#x27;&amp;quot;&amp;quot;&#x27; data-label=&#x27;null&#x27; data-placeholder=&#x27;&amp;quot;Url license of the model&amp;quot;&#x27; data-kind=&#x27;&amp;quot;url&amp;quot;&#x27; data-full-width=&#x27;false&#x27; data-disabled=&#x27;false&#x27; data-debounce=&#x27;true&#x27;&gt;&lt;/marimo-text&gt;&lt;/marimo-ui-element&gt;&quot;,&quot;Framework&quot;:&quot;text/html:&lt;marimo-ui-element object-id=&#x27;bkHC-35&#x27; random-id=&#x27;131aa48b-68df-d2e6-f272-2989bd4ab425&#x27;&gt;&lt;marimo-dropdown data-initial-value=&#x27;[]&#x27; data-label=&#x27;null&#x27; data-options=&#x27;[&amp;quot;pytorch&amp;quot;,&amp;quot;sklearn&amp;quot;,&amp;quot;tensorflow&amp;quot;,&amp;quot;other&amp;quot;]&#x27; data-allow-select-none=&#x27;true&#x27; data-searchable=&#x27;false&#x27; data-full-width=&#x27;false&#x27;&gt;&lt;/marimo-dropdown&gt;&lt;/marimo-ui-element&gt;&quot;,&quot;Type&quot;:&quot;text/html:&lt;marimo-ui-element object-id=&#x27;bkHC-36&#x27; random-id=&#x27;cd0da81f-4c94-605a-3123-3cb5175b9f1f&#x27;&gt;&lt;marimo-dropdown data-initial-value=&#x27;[]&#x27; data-label=&#x27;null&#x27; data-options=&#x27;[&amp;quot;cnn&amp;quot;,&amp;quot;decision_tree&amp;quot;,&amp;quot;dnn&amp;quot;,&amp;quot;gnn&amp;quot;,&amp;quot;kmeans&amp;quot;,&amp;quot;llm&amp;quot;,&amp;quot;lstm&amp;quot;,&amp;quot;random_forest&amp;quot;,&amp;quot;rnn&amp;quot;,&amp;quot;svm&amp;quot;,&amp;quot;other&amp;quot;]&#x27; data-allow-select-none=&#x27;true&#x27; data-searchable=&#x27;false&#x27; data-full-width=&#x27;false&#x27;&gt;&lt;/marimo-dropdown&gt;&lt;/marimo-ui-element&gt;&quot;,&quot;Test Accuracy&quot;:&quot;text/html:&lt;marimo-ui-element object-id=&#x27;bkHC-37&#x27; random-id=&#x27;6482e63e-0b86-39c7-cde2-f1d498722a6a&#x27;&gt;&lt;marimo-text data-initial-value=&#x27;&amp;quot;&amp;quot;&#x27; data-label=&#x27;null&#x27; data-placeholder=&#x27;&amp;quot;Test dataset accuracy.&amp;quot;&#x27; data-kind=&#x27;&amp;quot;text&amp;quot;&#x27; data-full-width=&#x27;false&#x27; data-disabled=&#x27;false&#x27; data-debounce=&#x27;true&#x27;&gt;&lt;/marimo-text&gt;&lt;/marimo-ui-element&gt;&quot;}' data-value-types='&quot;python&quot;' data-name='&quot;AI Model&quot;'></marimo-json-output></marimo-dict></marimo-ui-element></span></span></marimo-dict></marimo-ui-element></marimo-form></marimo-ui-element></div><div><marimo-ui-element object-id='lEQa-11' random-id='acadd096-fc10-f9aa-764a-9b639fca5a94'><marimo-form data-initial-value='null' data-label='null' data-element-id='&quot;lEQa-10&quot;' data-loading='false' data-bordered='true' data-submit-button-label='&quot;Submit&quot;' data-submit-button-disabled='false' data-clear-on-submit='false' data-show-clear-button='false' data-clear-button-label='&quot;Clear&quot;' data-should-validate='false'><marimo-ui-element object-id='lEQa-10' random-id='d4f74b0d-5991-935f-3141-152c618b9420'><marimo-dict data-initial-value='{&quot;hf_token&quot;:&quot;&quot;,&quot;repo_name&quot;:&quot;&quot;,&quot;model_artifacts&quot;:[]}' data-label='null' data-element-ids='{&quot;lEQa-7&quot;:&quot;hf_token&quot;,&quot;lEQa-8&quot;:&quot;repo_name&quot;,&quot;lEQa-9&quot;:&quot;model_artifacts&quot;}'><span class=\"markdown prose dark:prose-invert\"><span class=\"paragraph\"><strong>Hugging Face Hub Token</strong></span>\n<span class=\"paragraph\"><marimo-ui-element object-id='lEQa-7' random-id='2e555749-bd4c-55dc-2527-4c4fbf5151bb'><marimo-text data-initial-value='&quot;&quot;' data-label='null' data-placeholder='&quot;HF Token...&quot;' data-kind='&quot;password&quot;' data-full-width='false' data-disabled='false' data-debounce='true'></marimo-text></marimo-ui-element></span>\n<span class=\"paragraph\"><strong>Model Repo Name</strong></span>\n<span class=\"paragraph\"><marimo-ui-element object-id='lEQa-8' random-id='9e6f2887-33fa-3afd-752f-612a7aa4aad3'><marimo-text data-initial-value='&quot;&quot;' data-label='null' data-placeholder='&quot;ex: {account-name}/{repo-name}&quot;' data-kind='&quot;text&quot;' data-full-width='false' data-disabled='false' data-debounce='true'></marimo-text></marimo-ui-element></span>\n<span class=\"paragraph\"><strong>Model Artifacts</strong>\n<marimo-ui-element object-id='lEQa-9' random-id='eacc6c73-e886-6b71-e662-3a1e4ae7e600'><marimo-file data-initial-value='[]' data-label='null' data-filetypes='[]' data-multiple='true' data-kind='&quot;button&quot;' data-max_size='100000000'></marimo-file></marimo-ui-element></span></span></marimo-dict></marimo-ui-element></marimo-form></marimo-ui-element></div></marimo-accordion><marimo-ui-element object-id='PKri-0' random-id='82928341-a1bb-2eb6-f75c-e970b092b2fc'><marimo-chatbot data-initial-value='{&quot;messages&quot;:[]}' data-label='null' data-prompts='[&quot;Hello ICICLE, how are you?&quot;]' data-show-configuration-controls='false' data-config='{&quot;max_tokens&quot;:100,&quot;temperature&quot;:0.5,&quot;top_p&quot;:1,&quot;top_k&quot;:40,&quot;frequency_penalty&quot;:0,&quot;presence_penalty&quot;:0}' data-allow-attachments='false' data-max-height='500'></marimo-chatbot></marimo-ui-element></div>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

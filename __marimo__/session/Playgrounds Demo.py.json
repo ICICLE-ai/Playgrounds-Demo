@@ -1,0 +1,47 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.17.0"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "6d30416bc470295e2627f1691fd215fe",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='MJUe-0' random-id='4057da6e-0674-e8ef-8421-6d9a045e3a83'><marimo-chatbot data-initial-value='{&quot;messages&quot;:[]}' data-label='null' data-prompts='[&quot;Hello ICICLE, how are you?&quot;]' data-show-configuration-controls='false' data-config='{&quot;max_tokens&quot;:100,&quot;temperature&quot;:0.5,&quot;top_p&quot;:1,&quot;top_k&quot;:40,&quot;frequency_penalty&quot;:0,&quot;presence_penalty&quot;:0}' data-allow-attachments='false' data-max-height='800'></marimo-chatbot></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

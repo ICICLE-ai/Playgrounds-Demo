@@ -1,0 +1,27 @@
+networks:
+  playgrounds-network:
+    driver: bridge
+services:
+  marimo:
+    image: ghcr.io/icicle-ai/playgrounds-demo:latest
+    ports:
+      - "3001:5000"
+    restart: always
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      - MLHUB_MCP=${MLHUB_MCP}
+      - MODEL_URL=${MODEL_URL}
+      - API_KEY=${API_KEY}
+      - MODEL_PROVIDER=${MODEL_PROVIDER}
+      - MODEL_NAME=${MODEL_NAME}
+    networks:
+      - playgrounds-network
+  mlhub-mcp:
+    image: ghcr.io/icicle-ai/mlhub-mcp:latest
+    ports:
+      - "3000:5000"
+    restart: always
+    networks:
+      - playgrounds-network
