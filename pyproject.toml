@@ -8,6 +8,7 @@ dependencies = [
     "marimo>=0.14.16",
     "patra-toolkit>=0.2.0",
     "playgrounds-agent",
+    "python-dotenv>=1.1.1",
     "setuptools>=80.9.0",
     "watchdog>=6.0.0",
 ]

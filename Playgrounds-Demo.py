@@ -8,6 +8,22 @@
 # ///
 
 import marimo
+import logging
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# Configure logging
+logging.basicConfig(
+    level=os.getenv("LOG_LEVEL", "INFO"),
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    handlers=[
+        logging.StreamHandler()  # Output to console
+    ],
+)
+
+logger = logging.getLogger(__name__)
 
 __generated_with = "0.17.0"
 app = marimo.App(width="full", app_title="Playgrounds Demo")
@@ -28,6 +44,7 @@ def _(mo):
             mo.nav_menu(
                 {
                     "https://icicle.ai": f"{mo.icon('lucide:home')} Home",
+                    "https://icicle-ai.github.io/training-catalog": f"{mo.icon('lucide:doc')} Training Catalog",
                     "Links": {
                         "https://github.com/icicle-ai": "GitHub",
                         "https://huggingface.co/icicle-ai": "Hugging Face",
@@ -233,6 +250,28 @@ def _(ai_model, mo, model_card):
     patra_model_card_form = (
         mo.md(
             """
+            # Create & Submit a Patra Model Card to the Knowledge Graph (KG)
+            The Patra Knowledge Base is a system designed to manage and track 
+            AI/ML models, with the objective of making them more accountable 
+            and trustworthy. It's a key part of the Patra ModelCards framework,
+            which aims to improve transparency and accountability in AI/ML 
+            models throughout their entire lifecycle. This includes the model's 
+            initial training phase, subsequent deployments, and ongoing usage, 
+            whether by the same or different individual.
+
+            Patra Model Cards are detailed records that provide essential 
+            information about each AI/ML model. This information includes 
+            technical details like the model's accuracy and latency, but it 
+            goes beyond that to include non-technical aspects such as 
+            fairness, explainability, and the model's behavior in various 
+            deployment environments. This holistic approach is intended to 
+            create a comprehensive understanding of the model's strengths 
+            and weaknesses, enabling more informed decisions about its use 
+            and deployment
+            
+            For more information visit the [ICICLE AI Training Catalog](https://icicle-ai.github.io/training-catalog/docs/category/patra-kg-2).
+
+            ---
             **Patra Model Card**
             ## Model Card Information
             {model_card}
@@ -258,8 +297,26 @@ def _(mo, patra_model_card_form):
     from io import BytesIO
     import httpx
 
+    from pydantic import BaseModel
+
+    class MLHubArtifactPayload(BaseModel):
+        name: str
+        model_type: str
+        version: str
+        framework: str
+        license: str
+
     def publish_model(data):
-        mc_name = patra_model_card_form.value.get("model_card")["Name"]
+        if not patra_model_card_form.value:
+            raise ValueError("Please create a Patra Model Card first")
+
+        model_card = patra_model_card_form.value.get("model_card")
+        ai_model = patra_model_card_form.value.get("ai_model")
+
+        if not model_card or not ai_model:
+            raise ValueError("Model card or AI model data is missing")
+
+        mc_name = model_card["Name"]
 
         def zip_files(files) -> bytes:
             """
@@ -289,35 +346,154 @@ def _(mo, patra_model_card_form):
         with httpx.Client(
             base_url="https://dev.develop.tapis.io/v3/mlhub/models-api"
         ) as client:
-            client.post(
+            response = client.post(
                 "/artifacts",
                 files={"file": (f"{mc_name}.zip", model_artifacts, "application/zip")},
             )
-        print(hf_token)
-        print(repo_name)
-        print(model_artifacts)
 
-        #     print(model_artifacts)
-        # payload = {
-        # "target_platform": "huggingface",
-        # }
+            response.raise_for_status()
+            print(response.json())
+            artifact_id = response.json()["result"]
 
-    # url = "https://dev.develop.tapis.io/v3/mlhub/models-api/artifacts"
+            response = client.post(
+                f"/artifacts/{artifact_id}",
+                json=MLHubArtifactPayload(
+                    name=repo_name,
+                    model_type=ai_model["Type"],
+                    version=ai_model["Version"],
+                    framework=ai_model["Framework"],
+                    license=ai_model["License"],
+                ).model_dump(),
+            )
 
-    data = (
+            response.raise_for_status()
+            print(response.json())
+
+            response = client.post(
+                f"/artifacts/{artifact_id}/publications",
+                json={"target_platform": "huggingface"},
+                headers={"Authorization": f"Bearer {hf_token}"},
+            )
+            print(response.json())
+
+    publish_model_form = (
         mo.md(
             """
-            **Hugging Face Hub Token**
+        # Publish Model Artifacts with MLHub to Hugging Face Hub
+        You can use MLHub to publish your model's artifacts to Hugging Face. 
+        To do so you first need to create a zip archive of the artifacts. 
+        You can either create an archive using your file browser or you can use the 
+        follwing snippets to do so in your Python script.
+        ```python
+        import zipfile
+        from io import BytesIO
 
-            {hf_token}
+        def zip_files(filenames: list[str]) -> bytes:
+            # Create an in-memory bytes buffer.
+            zip_buffer = BytesIO()
 
-            **Model Repo Name**
+            # Create a ZIP file in memory
+            with zipfile.ZipFile(zip_buffer, 'w', zipfile.ZIP_DEFLATED) as zip:
+                for filename in filenames:
+                    # Archives file from filesystem
+                    zip.write(filename)
+            # Set file pointer to the begining of the zip archive and return the bytes value.
+            zip_buffer.seek(0)
+            return zip_buffer.getvalue()
+        ```
 
-            {repo_name}
+        With our artifacts archived in a zip file. We can start using MLHub to 
+        publish these to our Hugging Face Hub Model Repo.
 
-            **Model Artifacts**
-            {model_artifacts}
-            """
+        MLHub requires us to do this in folowing order,
+        1.  Upload our archive to MLHub,
+        ```python
+        import httpx
+        from pydantic_settings import BaseSettings
+
+        class PublishingParams(BaseSettings):
+            model_config = SettingsConfigDict(env_file="*.env*", env_file_encoding="utf-8")
+
+            hf_token: str
+            tapis_token: str
+            model_repo: str
+
+        params = PublishingParams()
+
+        my_model_artifacts = [
+            "patra_model_card.json", # Patra Model Card we created
+            "MyModel.pt", # Saved PyTorch trained weights,
+            "README.md", # Repo README,
+            "MyModel.py", # MyModel python script
+        ]
+
+        base_url = "https://dev.develop.tapis.io/v3/mlhub/model-api"
+        response = httpx.post(
+            url=f"{{ base_url }}/artifacts",
+            files={{ "file": ("MyModel.zip", zip_files(my_model_artifacts), "application/zip") }}
+        )
+
+        # Raises an exception if it is not a successful response.
+        response.raise_for_status()
+
+        # If successful, MLHub will return the created UUID for the artifact.
+        artifact_uuid = response.json()["result"]
+
+        ```
+        2. Create Model Artifact Metadata.
+        - This meta is used in order for MLHub to provision and deploy your model using a Tapis sytem.
+        ```python
+        from pydantic import BaseModel
+        class MLHubArtifactMetadata(Basemodel):
+            name: str # Platform Repo Name (ex. for HuggingFace its {{ account }}/{{ repo }}) REQUIRED FOR MLHUB TO PROBLISH TO DESIRED PLATFORM
+            model_type: str # The model type (cnn, transformer, llm, etc)
+            version: str # The version of the model
+            framework: str # Framework used to create the model. (PyTorch, Tensorflow, etc)
+            license: str # Hyperlink to the license to use the model.
+
+        metadata = MLHubArtifactMetadata(
+            name=params.model_repo, # Taken from the PublishParams
+            model_type="CNN",
+            version="0.1",
+            framework="PyTorch",
+            license="https://huggingface.co/icicle-ai/MyModel/blob/main/LICENSE"
+        )
+
+        reponse = Client.post(
+            url=f"{{ base_url }}/artifacts/{{ artifact_id }}",
+            json=metadata.model_dump()
+        )
+
+        # Raise to see if any issues encountered. 
+        response.raise_for_status()
+        ```
+
+        3. With the artifacts and their metadata successfully create and 
+        ingested into MLHub, we can use MLHub to publish it to our desired platform.
+        ```python
+        # Publishing to Hugging Face Hub
+        
+        reponse = httpx.post(
+            url=f"{{ base_url }}/artifacts/{{ artifact_id }}/publications",
+            json={{ "target_platform": "huggingface" }},
+            headers={{ "Authorization": f"Bearer {{ config.hf_token }}" }}
+        )
+        
+        # Raise to see if any issues encountered. 
+        response.raise_for_status()
+        ```
+        ---
+        **Hugging Face Hub Token**
+
+        {hf_token}
+
+        **Model Repo Name**
+
+        {repo_name}
+
+        **Model Artifacts**
+        {model_artifacts}
+        """
         )
         .batch(
             hf_token=mo.ui.text(
@@ -330,7 +506,8 @@ def _(mo, patra_model_card_form):
         )
         .form(validate=publish_model)
     )
-    return (data,)
+
+    return (publish_model_form,)
 
 
 @app.cell
@@ -345,14 +522,14 @@ def _(mo):
     tree = ET.parse(xml_file)
     root = tree.getroot()
 
-    inst_v2 = root.find(".//version/v2/instructions")
-    if inst_v2 is None:
+    inst = root.find(".//version/v3/instructions")
+    if inst is None:
         raise FileNotFoundError
 
     # Get all text content from the element, including text with proper formatting
-    instructions_text = "".join(inst_v2.itertext()).strip()
-
-    agent = build_agent(instructions=instructions_text)
+    instructions_text = "".join(inst.itertext()).strip()
+    print(instructions_text)
+    agent = build_agent(instructions=instructions_text, max_retries=3)
 
     async def icicle_playgrounds_agent(messages, config=None):
         async with agent:
@@ -361,7 +538,7 @@ def _(mo):
             # # Set form data as environment variables for the agent to access
             # if publish_model_form.value:
             #     hf_token = publish_model_form.value.get("hf_token", "")
-            #     repo_name = publish_model_form.value.get("repo_name", "")
+            #     repo_name = publish_model_form.value.get("riepo_name", "")
             #     model_artifacts = publish_model_form.value.get("model_artifacts", [])
 
             #     print(hf_token)
@@ -373,7 +550,11 @@ def _(mo):
 
     chat = mo.ui.chat(
         icicle_playgrounds_agent,
-        prompts=["Hello ICICLE, how are you?"],
+        prompts=[
+            "Hello ICICLE, how are you?",
+            "My name is Carlos and I am an an Animal Ecologist. I am interested in using AI to help me with my research.",
+            "I am currently studying animal behaviors through the use of camera trap images that I have deployed.",
+        ],
         max_height=500,
         # allow_attachments=True,
     )
@@ -384,9 +565,18 @@ def _(mo):
 def _(chat, mo, patra_model_card_form, publish_model_form):
     sections = mo.accordion(
         {
-            "Diagrams": mo.md(
+            "Overview": mo.md(
                 """
-            ![diagram](https://raw.githubusercontent.com/ICICLE-ai/Playgrounds-Demo/refs/heads/main/PlaygroundsDemo.drawio.png)
+            The ICICLE Model & Data Playgrounds is a platform that allows you to discover and plug-n-play with AI models. 
+            This is all possible through the use of,
+            - Patra Knowledge Graph and Model Cards to collect and store model metadata
+            in order to aide the discovery of models. 
+            - The Playgrounds Agent and MLHub to discover models from multple paltform including Patra, Hugging Face, and GitHub.
+            - MLHub and Patra to publish models to your desired platform.
+            - Tapis Workflows to Plug-n-Play with these models in a containerized and safe platform.
+
+            
+            ![diagram](https://raw.githubusercontent.com/ICICLE-ai/Playgrounds-Demo/refs/heads/main/static/ICICLE Model & Data Playgrounds.drawio.png)
             """
             ),
             "Create Patra Model Card": patra_model_card_form,
@@ -396,7 +586,12 @@ def _(chat, mo, patra_model_card_form, publish_model_form):
 
     demo = mo.vstack(
         items=[
-            mo.center(mo.md("# ICICLE Model & Data Playgrounds Demo")),
+            mo.center(mo.md(
+                """
+                #ICICLE Model & Data Playgrounds: MLHub & Patra Demo
+
+                """
+            )),
             sections,
             chat,
         ]
@@ -407,11 +602,6 @@ def _(chat, mo, patra_model_card_form, publish_model_form):
 @app.cell
 def _(demo):
     demo
-    return
-
-
-@app.cell
-def _(patra_model_card_form, publish_model_form):
     return
 
 
