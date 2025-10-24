@@ -565,20 +565,7 @@ def _(mo):
 def _(chat, mo, patra_model_card_form, publish_model_form):
     sections = mo.accordion(
         {
-            "Overview": mo.md(
-                """
-            The ICICLE Model & Data Playgrounds is a platform that allows you to discover and plug-n-play with AI models. 
-            This is all possible through the use of,
-            - Patra Knowledge Graph and Model Cards to collect and store model metadata
-            in order to aide the discovery of models. 
-            - The Playgrounds Agent and MLHub to discover models from multple paltform including Patra, Hugging Face, and GitHub.
-            - MLHub and Patra to publish models to your desired platform.
-            - Tapis Workflows to Plug-n-Play with these models in a containerized and safe platform.
-
-            
-            ![diagram](https://raw.githubusercontent.com/ICICLE-ai/Playgrounds-Demo/refs/heads/main/static/ICICLE Model & Data Playgrounds.drawio.png)
-            """
-            ),
+            "Discover Models Through the Playgrounds Agent & MLHub": chat,
             "Create Patra Model Card": patra_model_card_form,
             "Publish Model Artifacts": publish_model_form,
         }
@@ -586,14 +573,24 @@ def _(chat, mo, patra_model_card_form, publish_model_form):
 
     demo = mo.vstack(
         items=[
-            mo.center(mo.md(
-                """
-                #ICICLE Model & Data Playgrounds: MLHub & Patra Demo
+            mo.center(
+                mo.md(
+                    """
+                    #ICICLE Model & Data Playgrounds: MLHub & Patra Demo
 
-                """
-            )),
+                    The ICICLE Model & Data Playgrounds is a platform that allows you to discover and plug-n-play with AI models. 
+                    This is all possible through the use of,
+                    - **Patra Knowledge Graph & Model Cards** to collect and store model metadata
+                    in order to aide the discovery of models. 
+                    - **MLHub** and the **Playgrounds Agent** to discover models from multple paltforms including Patra, Hugging Face, and GitHub.
+                    - **MLHub** and **Patra Model Cards** to publish models to your desired platform.
+                    - **Tapis Workflows** to ***Plug-n-Play*** with these models in a containerized and safe platform.
+
+                    ![diagram](/app/static/ICICLE-Model-&-Data-Playgrounds.jpg)
+                    """
+                ),
+            ),
             sections,
-            chat,
         ]
     )
     return (demo,)
